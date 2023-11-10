@@ -19,6 +19,12 @@ services:
     depends_on:
       - auth_service
       - mongo
-
+  jaeger:
+    image: jaegertracing/all-in-one
+    ports:
+        - 16686:16686
+        - 4317:4317
+    environment:
+        COLLECTOR_OTLP_ENABLED: true
 volumes:
   mongo-data:
